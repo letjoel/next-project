@@ -1,10 +1,11 @@
 import React from 'react'
 import LikeButton from '../components/LikeButton/LikeButton'
+import Link from 'next/link'
 
 const fetchPosts = () => {
-  return fetch('https://jsonplaceholder.typicode.com/posts').then((response) =>
-    response.json()
-  )
+  return fetch('https://jsonplaceholder.typicode.com/posts', {
+    cache: 'no-store'
+  }).then((response) => response.json())
 }
 
 const ListOfPosts = async () => {
@@ -12,9 +13,11 @@ const ListOfPosts = async () => {
 
   return posts.slice(0, 5).map((post) => (
     <article className="flex flex-col m-5 gap-2" key={post.id}>
-      <h2 className="font-bold text-2xl">{post.title}</h2>
-      <p>{post.body}</p>
-      <LikeButton />
+      <Link href="/posts/[id]" as={`/posts/${post.id}`}>
+        <h2 className="font-bold text-2xl">{post.title}</h2>
+        <p>{post.body}</p>
+        <LikeButton />
+      </Link>
     </article>
   ))
 }
