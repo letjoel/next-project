@@ -7,7 +7,7 @@ const LikeButton = () => {
 
   return (
     <button
-      className="w-24 p-2 bg-slate-400 rounded-md"
+      className="w-24 p-1 bg-slate-400 rounded-md m-2"
       onClick={() => setLike(!liked)}
     >
       {liked ? 'Unlike' : 'Like'}

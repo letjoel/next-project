@@ -1,5 +1,4 @@
 import React from 'react'
-import LikeButton from '../components/LikeButton/LikeButton'
 import Link from 'next/link'
 
 const fetchPosts = () => {
@@ -16,7 +15,6 @@ const ListOfPosts = async () => {
       <Link href="/posts/[id]" as={`/posts/${post.id}`}>
         <h2 className="font-bold text-2xl">{post.title}</h2>
         <p>{post.body}</p>
-        <LikeButton />
       </Link>
     </article>
   ))

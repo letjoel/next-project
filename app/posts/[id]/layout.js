@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LikeButton from '@/app/components/LikeButton/LikeButton'
 
 const fetchSinglePost = (id) => {
   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
@@ -16,6 +17,9 @@ export default async function Post({ children, params }) {
     <article className="flex flex-col text-center mt-7">
       <h1 className="text-xl text-teal-400">{post.title}</h1>
       <p>{post.body}</p>
+      <div className="flex justify-center">
+        <LikeButton />
+      </div>
       <Link href={`/posts/${id}/comments`} className="text-red-300 mt-3 mb-2">
         See comments
       </Link>
