@@ -10,7 +10,19 @@ const fetchComments = (id) => {
 
 export default async function Comment({ params }) {
   const { id } = params
-  const comments = await fetchComments(id)
+  let comments = []
+  try {
+    comments = await fetchComments(id)
+  } catch (error) {
+    comments = [
+      {
+        id: 0,
+        email: 'test@gmail.com',
+        name: 'testName',
+        body: 'bodyTest'
+      }
+    ]
+  }
 
   return (
     <ul className="bg-slate-500 text-sm">

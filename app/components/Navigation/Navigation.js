@@ -13,6 +13,10 @@ const links = [
   {
     label: 'Posts',
     href: '/posts'
+  },
+  {
+    label: 'Contact',
+    href: '/contact'
   }
 ]
 const Navigation = () => {
